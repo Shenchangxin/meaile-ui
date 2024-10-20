@@ -1,8 +1,8 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from 'vue';
+import './style.css';
+import App from './App.vue';
 import router from "./router/index";
-import ElementPlus from 'element-plus'
+import ElementPlus from 'element-plus';
 import request from "./utils/request.js";
 import storage from "./store/storage.js";
 const app = createApp(App)
