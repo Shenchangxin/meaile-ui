@@ -4,6 +4,8 @@ import App from './App.vue'
 import router from "./router/index";
 import ElementPlus from 'element-plus'
 import request from "./utils/request.js";
+import storage from "./store/storage.js";
 const app = createApp(App)
 app.config.globalProperties.$request = request
+app.config.globalProperties.$storage = storage
 app.use(router).use(ElementPlus).mount('#app');

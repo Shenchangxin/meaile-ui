@@ -20,5 +20,6 @@ const EnvConfig = {
 export default {
     env,
     mock:true,
+    namespace: 'meaile-ui',
     ...EnvConfig[env]
 }
