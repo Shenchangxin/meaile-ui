@@ -22,7 +22,6 @@ export default {
 </script>
 <style lang="scss">
 .basic-layout{
-  width: 100%;
   position: relative;
   .nav-side{
     position: fixed;
