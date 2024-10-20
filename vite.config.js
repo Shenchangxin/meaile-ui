@@ -7,10 +7,10 @@ export default defineConfig({
     host: 'localhost',
     port:8080,
     proxy: {
-      '/': {
-        target: 'http://127.0.0.1:8088', // 你的后端服务器地址
+      '/api/': {
+        target: 'http://127.0.0.1:8088/v1', // 你的后端服务器地址
         changeOrigin: true,
-        rewrite: (path) => path.startsWith('/') ? path : `/${path}` // 根据需要调整重写规则
+        rewrite: (path) => path.replace(/^\/api/, '') // 根据需要调整重写规则
       },
     },
   },
