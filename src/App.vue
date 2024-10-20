@@ -4,12 +4,10 @@
 
 <script>
 export default {
-  name: 'app',
-  mounted() {
-    this.$storage.setItem('userInfo','shencx')
-  }
+  name: 'app'
 }
 </script>
 
-<style>
+<style lang="scss">
+
 </style>
