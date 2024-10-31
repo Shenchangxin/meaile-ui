@@ -1,0 +1,36 @@
+{
+  "name": "meaile-ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/axios": "^0.9.36",
+    "@types/vue-router": "^2.0.0",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "element-plus": "^2.8.6",
+    "good-storage": "^1.1.1",
+    "vue": "^3.5.12",
+    "vue-router": "^4.0.13",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/good-storage": "^1.1.2",
+    "@types/node": "^18.19.59",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "eslint": "^9.0.0",
+    "eslint-plugin-vue": "^9.29.1",
+    "sass": "^1.80.5",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.9",
+    "vue-eslint-parser": "^9.4.3",
+    "vue-tsc": "^2.1.6"
+  }
+}
