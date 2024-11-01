@@ -1,23 +1,24 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
 
 const user = () => import('@/views/user/index.vue')
-const zhuye = () => import('@/views/zhuye/index.vue')
+const search = () => import('@/views/search/index.vue')
 const routes: RouteRecordRaw[] = [
-    {
-        name: 'user',
-        path: '/user',
-        component: user
-    },
-    {
-        name: 'zhuye',
-        path: '/zhuye',
-        component: zhuye
-    },
     {
         name: 'shouye',
         path: '/',
         component: user
     },
+  {
+        name: 'user',
+        path: '/user',
+        component: user
+    },
+    {
+        name: 'search',
+        path: '/search',
+        component: search
+    },
+
 
 ]
 

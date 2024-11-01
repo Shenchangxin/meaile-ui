@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    <h1>我爱肖莹莹</h1>
+    <h1>这里是用户中心页面</h1>
   </div>
 </template>
 

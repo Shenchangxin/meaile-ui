@@ -22,5 +22,10 @@
     background-color: #f6f6f6;
     border-radius: 1rem;
   }
+  .message{
+    width: 0.70rem;
+    height: 0.67rem;
+    margin-left: 0.02rem;
+  }
 }
 </style>
