@@ -16,8 +16,8 @@ export default defineConfig((mode) => {
   const envMap:DotenvParseOutput = dotenv.parse(envData)
   if (mode.mode === 'development'){
     server={
-      host:'192.168.2.6',
-      port:8080,
+      host:'192.168.44.32',
+      port:8090,
       proxy:{
         '/meaile/api':{
           target:'http://192.168.2.6:8088/api/v1',
@@ -34,6 +34,13 @@ export default defineConfig((mode) => {
         '@': path.resolve(__dirname, './src')
       }
     },
-    server
+    server,
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler', // or 'modern'
+        },
+      },
+    }
   }
 })
