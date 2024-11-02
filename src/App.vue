@@ -8,4 +8,5 @@
 <style>
 @import '@/assets/viewwindow.css';
 @import '@/assets/reset.css';
+@import '@/assets/icon/iconfont.css';
 </style>

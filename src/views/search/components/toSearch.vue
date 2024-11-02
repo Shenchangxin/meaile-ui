@@ -1,6 +1,8 @@
 <template>
   <div class="content">
-    <div class="to-search"></div>
+    <div class="to-search">
+      <i class="iconfont icon-fangdajing"></i>
+    </div>
     <div class="message"></div>
   </div>
 </template>
