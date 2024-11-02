@@ -1,0 +1,30 @@
+{
+  "id": "4731942",
+  "name": "meaile-ui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "16846211",
+      "name": "消息",
+      "font_class": "huaban3",
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
+      "icon_id": "1727483",
+      "name": "239扫描",
+      "font_class": "saomiao",
+      "unicode": "e8d4",
+      "unicode_decimal": 59604
+    },
+    {
+      "icon_id": "26847616",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    }
+  ]
+}
