@@ -1,4 +1,3 @@
-import conf from '@/config'
 import axios, {AxiosInstance,AxiosRequestConfig,AxiosResponse,AxiosPromise} from "axios"
 import {ElMessage} from "element-plus";
 
@@ -62,12 +61,12 @@ class AxiosUtil {
     }
     //发送请求给服务器
     sendRequest(options: AxiosRequestConfig_){
-        if (conf.env === 'production'){
-            this.axiosInstance.defaults.baseURL = conf.baseApi
+        if (import.meta.env.MODE === 'production'){
+            this.axiosInstance.defaults.baseURL = import.meta.env.VITE_BaseApi
 
-        }else if (conf.env === 'development'){
-            const isMock: boolean = options.isMock || conf.isMock
-            this.axiosInstance.defaults.baseURL = isMock ? conf.mockBaseApi : conf.baseApi
+        }else if (import.meta.env.MODE === 'development'){
+            const isMock: boolean = options.isMock || import.meta.env.VITE_IsMock
+            this.axiosInstance.defaults.baseURL = isMock ? import.meta.env.VITE_MockBaseApi : import.meta.env.VITE_BaseApi
         }
         return this.axiosInstance(options)
     }

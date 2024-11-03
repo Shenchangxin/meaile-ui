@@ -1,9 +1,9 @@
 import request from "@/utils/axiosUtil";
 
-class GroupApi {
-  static api : GroupApi = new GroupApi()
-  getGroupList(){
+class UserApi {
+  static api : UserApi = new UserApi()
+  getUserInfo(){
     return request.get('/meaile/api/user/getUserInfo',false)
   }
 }
-export default GroupApi.api
+export default UserApi.api
