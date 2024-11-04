@@ -36,8 +36,13 @@ export const store: Module<TagState, State> = {
         updatedBy: "",
         updatedTime: "",
     }),
+    getters: {
+        getTagList(state){
+            return state.tagList
+        }
+    },
     mutations: {
-        setGroupList(state,tagList:TagState){
+        setTagList(state,tagList:TagState){
             state.tagList = tagList
         }
     },

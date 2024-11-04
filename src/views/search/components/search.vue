@@ -3,22 +3,35 @@
     <ul class="firstTag">
       <li :class="{'firstTag-item':true,'firstTag-item_active':firstTagActiveIndex === index}"
           @click="changeTab(index)"
-          v-for="(item,index) in tagList">
+          v-for="(item,index) in tagList"
+          :key="item.id">
         <span class="firstTagName">{{item.tagName}}</span>
 
       </li>
     </ul>
-    <div class="secondTag"></div>
+    <div class="secondTag">
+      <ul>
+        <li class="secondTag-item"
+            v-for="(item,index) in secondTagList" :key=" item.id" >
+          <div class="secondTag-item">
+            {{item.tagName}}
+          </div>
+
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+import SearchService from "@/views/search/service";
 
+const {getFirstTagList,getSecondTagList,changeTab,firstTagActiveIndex,tagList,secondTagList} = SearchService
+getFirstTagList()
+getSecondTagList()
 //获取标签列表数据
 
-function changeTab(index: number){
-  firstTagActiveIndex.value=index;
-}
+
 </script>
 
 <style lang="scss">
@@ -57,6 +70,17 @@ function changeTab(index: number){
     background-color: green;
     flex: 1;
     margin-right: 0.19rem;
+    &-item{
+      background-color: #fff;
+      .secondTag-item{
+        height: 0.73rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.2rem;
+
+      }
+    }
   }
 
 }
