@@ -13,9 +13,10 @@
       <ul>
         <li class="secondTag-item"
             v-for="(item,index) in secondTagList" :key=" item.id" >
-          <div class="secondTag-item">
+          <span class="secondTagName">
             {{item.tagName}}
-          </div>
+          </span>
+          <span class="iconfont icon-shuxian"></span>
 
         </li>
       </ul>
@@ -67,18 +68,17 @@ getSecondTagList()
     }
   }
   .secondTag{
-    background-color: green;
-    flex: 1;
-    margin-right: 0.19rem;
+    display: grid;
+    padding: 0rem 0.05rem 0rem 0.1rem;
+    grid-template-columns: 1.18rem 1.1rem 0.25rem;
     &-item{
       background-color: #fff;
       .secondTag-item{
-        height: 0.73rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.2rem;
-
+        padding: 0.2rem 0rem;
+        text-align: center;
+        .secondTagName{
+          flex: 1;
+        }
       }
     }
   }
