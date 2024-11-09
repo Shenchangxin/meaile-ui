@@ -1,10 +1,12 @@
 import {ref, Ref, watchEffect} from "vue";
-import {Tag,store as tagStore} from "@/store/modules/tag.ts";
-
-
+import {Tag, tagStore,} from "@/store/modules/tag.ts";
+import {storeToRefs} from "pinia";
 
 
 export  default  class SearchService{
+    static store = tagStore()
+    static storeRefs = storeToRefs(SearchService.store)
+
     static firstTagActiveIndex:Ref<number>=ref(0)
 
     static tagList: Ref<Tag[]> = ref([])
@@ -13,8 +15,7 @@ export  default  class SearchService{
 
     //查询标签数据
     static async getFirstTagList(){
-        tagStore.actions.getTagList()
-        SearchService.tagList.value = tagStore.getters.getTagList
+        await SearchService.store.getTagList(1)
     }
     static changeTab(index: number){
         SearchService.firstTagActiveIndex.value=index;
@@ -22,8 +23,7 @@ export  default  class SearchService{
 
     static getSecondTagList(){
         watchEffect(async () => {
-            await tagStore.actions.getTagList(SearchService.firstTagActiveIndex.value+1)
-            SearchService.secondTagList.value = tagStore.getters.getTagList
+            await SearchService.store.getTagList(SearchService.firstTagActiveIndex.value+1)
         })
     }
 

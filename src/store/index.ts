@@ -2,8 +2,8 @@ import { useStore as baseUseStore,createStore } from 'vuex';
 import type { InjectionKey } from "vue";
 import type { Store } from 'vuex';
 import {store as user} from "./modules/user";
-import {store as tag, TagState} from "./modules/tag.ts";
 import { UserState } from "./modules/user";
+import {TagState} from "@/store/modules/tag.ts";
 // 限制类型
 export interface State {
     count: number;
@@ -32,7 +32,6 @@ export default createStore<State>({
     },
     modules: {
         user,
-        tag
     },
 });
 // 定义自己的 `useStore` 组合式函数 这里也有了变化
