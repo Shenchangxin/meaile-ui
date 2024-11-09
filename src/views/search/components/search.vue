@@ -26,8 +26,9 @@
 
 <script lang="ts">
 import SearchService from "@/views/search/service";
-
-const {getFirstTagList,getSecondTagList,changeTab,firstTagActiveIndex,tagList,secondTagList} = SearchService
+const  {storeRefs} = SearchService
+const {getFirstTagList,getSecondTagList,changeTab,firstTagActiveIndex} = SearchService
+const {tagList} = storeRefs
 getFirstTagList()
 getSecondTagList()
 //获取标签列表数据
