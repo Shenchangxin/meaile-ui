@@ -1,35 +1,30 @@
-import type { Module } from 'vuex'
-import  type  {State}  from '@/store'
+
 import UserApi from "@/api/UserApi.ts";
+import {defineStore} from "pinia";
 export  interface UserState{
     username:string,
     id:number,
     nickname: string,
 }
-export const store: Module<UserState, State> = {
-    namespaced: true,
+
+export const userStore = defineStore('userStore',{
     state: (): UserState => ({
+        username:"",
+        id:1,
         nickname: "",
-        username: "",
-        id: 1
     }),
-    getters: {
-        //users
+    getters:{
         getUserInfo(state){
             return state
         }
     },
-    mutations: {
-        setUserInfo(state,userInfo:UserState){
-            state.users = userInfo
-        }
-    },
     actions: {
         //users
-        async getUserInfo({commit}) {
+        async getUserInfo() {
             const result = await UserApi.getUserInfo()
-            commit('setUserInfo',result.data)
+            this.$state = result.data
             console.log(result.data)
         }
-    },
-}
+    }
+
+})
