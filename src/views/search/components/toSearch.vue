@@ -2,28 +2,36 @@
   <div class="content">
     <div class="to-search">
       <i class="iconfont icon-fangdajing"></i>
+      <div class="tosearch-keyword">
+        <input type="text" placeholder="土豆" class="tosearch-keyword-input"/>
+        <i class="iconfont icon-iconfontscan"></i>
+      </div>
     </div>
-    <div class="message"></div>
+    <div class="message">
+      <i class="iconfont icon-xiaoxi"></i>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
+@import "@/assets/css/common.scss";
 .content{
-  position: fixed;
-  display: flex;
-  margin: 0.18rem;
-  width: 5.04rem;
-  background-color: antiquewhite;
-
-  height: 0.85rem;
-  align-items: center;
+  @extend .multiplex-content;
   .to-search{
-    width: 4.32rem;
-    height: 0.67rem;
-    background-color: #f6f6f6;
-    border-radius: 1rem;
+    @extend .multiplex-tosearch;
+    .icon-fangdajing{
+      font-size: 0.32rem;
+      margin: 0rem 0.2rem;
+    }
+    &-keyword{
+      width: 3.5rem;
+      height: 0.63rem;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
   }
   .message{
     width: 0.70rem;
