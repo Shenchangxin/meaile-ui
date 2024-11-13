@@ -1,6 +1,7 @@
 import {ref, Ref, watchEffect} from "vue";
 import {Tag, tagStore,} from "@/store/modules/tag.ts";
 import {storeToRefs} from "pinia";
+import router from "@/router";
 
 
 export  default  class SearchService{
@@ -25,6 +26,15 @@ export  default  class SearchService{
         watchEffect(async () => {
             await SearchService.store.getTagList(SearchService.firstTagActiveIndex.value+1)
         })
+    }
+
+    static back(){
+        router.back()
+    }
+
+    static toFoodBookInfo (secondTag: Tag[]){
+        SearchService.store.storeTags(secondTag)
+        router.push({name:'foodbook'})
     }
 
 }
