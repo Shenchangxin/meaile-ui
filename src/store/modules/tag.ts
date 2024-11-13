@@ -1,5 +1,6 @@
 import TagApi from "@/api/TagApi.ts";
 import {defineStore} from "pinia";
+import goodStorage from "good-storage";
 
 
 export  interface Tag{
@@ -15,7 +16,8 @@ export  interface Tag{
 }
 export  interface TagState{
     tag :Tag,
-    tagList: Tag[]
+    tagList: Tag[],
+    firstTagList: Tag[]
 }
 
 export const tagStore = defineStore('tagStore',{
@@ -31,21 +33,38 @@ export const tagStore = defineStore('tagStore',{
             updatedBy: "",
             updatedTime: "",
         },
-        tagList: []
-
+        tagList: [],
+        firstTagList: []
     }),
     getters:{
         getTagList(state){
             return state.tagList
+        },
+        getFirstTagList(state){
+            return state.firstTagList
+        },
+        getSecondTagList(state): Tag[]{
+            return goodStorage.get('secondTagList') || state.tagList
         }
     },
     actions: {
-        //users
+        storeTags(secondTagList : Tag[]){
+            goodStorage.set('secondTagList',secondTagList)
+            this.tagList = secondTagList
+        },
+
         async getTagList(id:number) {
             const result = await TagApi.getTagList(id)
             this.tagList = result.data
             console.log(result.data)
-        }
+        },
+
+        async getFirstTagList() {
+            const result = await TagApi.getTagList(0)
+            this.firstTagList = result.data
+            console.log(result.data)
+        },
+
     }
 
 })
