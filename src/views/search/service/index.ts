@@ -14,26 +14,47 @@ export  default  class SearchService{
 
     static secondTagList: Ref<Tag[]> = ref([])
 
+    static async getFirstTag(){
+        await this.store.getFirstTagListById()
+        this.storeFirstTag(1)
+    }
+
+    static storeFirstTag(index:number){
+        const firstTag = this.store.firstTagList.find((firstTag)=>{
+            return firstTag.id === index
+        })!
+        this.store.storeClickTagsByKey(firstTag,'firstTag')
+    }
+
     //查询标签数据
     static async getFirstTagList(){
-        await SearchService.store.getTagList(1)
+        await SearchService.store.getTagListById(1)
     }
     static changeTab(index: number){
-        SearchService.firstTagActiveIndex.value=index;
+        SearchService.firstTagActiveIndex.value=index
+        SearchService.storeFirstTag(index+1)
+    }
+    static showColLine(index: number){
+        return (index+1) % 3 !== 0
     }
 
     static getSecondTagList(){
         watchEffect(async () => {
-            await SearchService.store.getTagList(SearchService.firstTagActiveIndex.value+1)
+            await SearchService.store.getTagListById(SearchService.firstTagActiveIndex.value+1)
         })
+    }
+
+    static  getClickTag(){
+        return  SearchService.store.getSecondTag
     }
 
     static back(){
         router.back()
     }
 
-    static toFoodBookInfo (secondTag: Tag[]){
-        SearchService.store.storeTags(secondTag)
+    static toFoodBookInfo (secondTag: Tag,firstTag: Tag){
+        SearchService.store.storeClickTagsByKey(secondTag,'secondTag')
+        SearchService.store.storeClickTagsByKey(firstTag,'firstTag')
         router.push({name:'foodbook'})
     }
 
