@@ -15,7 +15,7 @@ export  default  class SearchService{
     static secondTagList: Ref<Tag[]> = ref([])
 
     static async getFirstTag(){
-        await this.store.getFirstTagListById()
+        await this.store.getFirstTagListByParentId()
         this.storeFirstTag(1)
     }
 
@@ -28,7 +28,7 @@ export  default  class SearchService{
 
     //查询标签数据
     static async getFirstTagList(){
-        await SearchService.store.getTagListById(1)
+        await SearchService.store.getFirstTagListByParentId()
     }
     static changeTab(index: number){
         SearchService.firstTagActiveIndex.value=index
@@ -40,7 +40,7 @@ export  default  class SearchService{
 
     static getSecondTagList(){
         watchEffect(async () => {
-            await SearchService.store.getTagListById(SearchService.firstTagActiveIndex.value+1)
+            await SearchService.store.getTagListByParentId(SearchService.firstTagActiveIndex.value+1)
         })
     }
 
