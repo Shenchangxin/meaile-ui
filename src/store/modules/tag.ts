@@ -2,6 +2,9 @@ import TagApi from "@/api/TagApi.ts";
 import {defineStore} from "pinia";
 import goodStorage from "good-storage";
 
+function hasProps(obj:Record<string, any>){
+    return Boolean(Object.getOwnPropertyNames(obj).length)
+}
 
 export  interface Tag{
     id:number,
@@ -14,28 +17,17 @@ export  interface Tag{
     updatedBy: string
     updatedTime: string,
 }
-export  interface TagState{
-    tag :Tag,
-    tagList: Tag[],
-    firstTagList: Tag[]
-}
 
 export const tagStore = defineStore('tagStore',{
-    state: (): TagState => ({
-        tag:{
-            id:1,
-            tagName:"",
-            parentId: 1,
-            userId: 1,
-            status:"",
-            createdBy: "",
-            createdTime: "",
-            updatedBy: "",
-            updatedTime: "",
-        },
-        tagList: [],
-        firstTagList: []
-    }),
+    state: ()=> {
+        return {
+            tag: {} as Tag,
+            firstTag: {} as Tag,
+            secondTag: {} as Tag,
+            tagList: [] as Tag[],
+            firstTagList: [] as Tag[]
+        }
+    },
     getters:{
         getTagList(state){
             return state.tagList
@@ -43,23 +35,34 @@ export const tagStore = defineStore('tagStore',{
         getFirstTagList(state){
             return state.firstTagList
         },
-        getSecondTagList(state): Tag[]{
-            return goodStorage.get('secondTagList') || state.tagList
+        // getSecondTagList(state): Tag[]{
+        //     return goodStorage.get('secondTagList') || state.tagList
+        // },
+        getFirstTag(state): Tag{
+            return hasProps(state.firstTag)? state.firstTag : goodStorage.get('firstTag')
+        },
+        getSecondTag(state): Tag{
+            return hasProps(state.secondTag)? state.secondTag : goodStorage.get('secondTag')
         }
     },
     actions: {
-        storeTags(secondTagList : Tag[]){
-            goodStorage.set('secondTagList',secondTagList)
-            this.tagList = secondTagList
-        },
+        storeClickTagsByKey(clickTag : Tag,key: string){
+            if (key === 'firstTag'){
+                goodStorage.set('firstTag',clickTag)
+                this.firstTag = clickTag
+            }else if (key === 'secondTag'){
+                goodStorage.set('secondTag',clickTag)
+                this.secondTag = clickTag
+            }
 
-        async getTagList(id:number) {
+        },
+        async getTagListById(id:number) {
             const result = await TagApi.getTagList(id)
             this.tagList = result.data
             console.log(result.data)
         },
 
-        async getFirstTagList() {
+        async getFirstTagListById() {
             const result = await TagApi.getTagList(0)
             this.firstTagList = result.data
             console.log(result.data)

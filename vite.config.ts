@@ -16,7 +16,7 @@ export default defineConfig((mode) => {
   const envMap:DotenvParseOutput = dotenv.parse(envData)
   if (mode.mode === 'development'){
     server={
-      host:'192.168.2.6',
+      host:'192.168.2.8',
       port:8090,
       proxy:{
         '/meaile/api':{

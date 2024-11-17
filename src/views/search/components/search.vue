@@ -9,15 +9,15 @@
 
       </li>
     </ul>
+
     <div class="secondTag">
       <ul>
         <li class="secondTag-item"
             v-for="(item,index) in secondTagList" :key=" item.id" >
-          <span class="secondTagName">
+          <span class="secondTagName" @click="toFoodBookInfo(item,firstTag)">
             {{item.tagName}}
           </span>
-          <span class="iconfont icon-shuxian"></span>
-
+          <span class="iconfont icon-shuxian" v-show="showColLine(index)"></span>
         </li>
       </ul>
     </div>
@@ -27,8 +27,8 @@
 <script lang="ts">
 import SearchService from "@/views/search/service";
 const  {storeRefs} = SearchService
-const {getFirstTagList,getSecondTagList,changeTab,firstTagActiveIndex} = SearchService
-const {tagList} = storeRefs
+const {getFirstTagList,getSecondTagList,showColLine,changeTab,firstTagActiveIndex,toFoodBookInfo} = SearchService
+const {firstTag} = storeRefs
 getFirstTagList()
 getSecondTagList()
 //获取标签列表数据
@@ -44,7 +44,6 @@ getSecondTagList()
   top: 1.02rem;
   left: 0rem;
   bottom: 0.85rem;
-  background-color: aquamarine;
   gap: 0.1rem;
   .firstTag{
     width: 1.3rem;

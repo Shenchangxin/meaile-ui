@@ -16,7 +16,7 @@
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/common.scss";
+@use "@/assets/css/common";
 .content{
   @extend .multiplex-content;
   .to-search{

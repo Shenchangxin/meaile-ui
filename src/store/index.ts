@@ -1,10 +1,13 @@
-import {userStore} from '@/store/modules/user.ts'
-import {tagStore} from '@/store/modules/tag.ts'
+import { createPinia } from 'pinia';
 
-export default function useStore() {
-    return {
-        userStore: userStore(),
-        tagStore: tagStore(),
-
-    }
-}
+const pinia = createPinia();
+export default pinia;
+export * from './modules/tag.ts';
+export * from './modules/user.ts';
+// export default function useStore() {
+//     return {
+//         userStore: userStore(),
+//         tagStore: tagStore(),
+//
+//     }
+// }
