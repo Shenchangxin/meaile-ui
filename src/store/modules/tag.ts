@@ -56,14 +56,14 @@ export const tagStore = defineStore('tagStore',{
             }
 
         },
-        async getTagListById(id:number) {
-            const result = await TagApi.getTagList(id)
+        async getTagListByParentId(id:number) {
+            const result = await TagApi.getTagListByParentId(id)
             this.tagList = result.data
             console.log(result.data)
         },
 
-        async getFirstTagListById() {
-            const result = await TagApi.getTagList(0)
+        async getFirstTagListByParentId() {
+            const result = await TagApi.getTagListByParentId(0)
             this.firstTagList = result.data
             console.log(result.data)
         },

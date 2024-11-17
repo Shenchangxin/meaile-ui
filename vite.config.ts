@@ -20,7 +20,7 @@ export default defineConfig((mode) => {
       port:8090,
       proxy:{
         '/meaile/api':{
-          target:'http://192.168.2.6:8088/api/v1',
+          target:'http://192.168.2.8:8088/api/v1',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/meaile\/api/, '')
         }
