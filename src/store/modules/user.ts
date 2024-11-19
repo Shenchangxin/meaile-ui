@@ -1,28 +1,51 @@
 
 import UserApi from "@/api/UserApi.ts";
 import {defineStore} from "pinia";
-export  interface UserState{
+import goodStorage from "good-storage"
+export  interface User{
     username:string,
     id:number,
     nickname: string,
 }
 
+export  interface LoginForm{
+    username:string,
+    password:string,
+}
+export  interface Claims{
+    token:string,
+    Id:number,
+    username:string,
+    nickname:string,
+}
+
 export const userStore = defineStore('userStore',{
-    state: (): UserState => ({
-        username:"",
-        id:1,
-        nickname: "",
-    }),
+    state: ()=> {
+        return {
+            user: {} as User,
+            claims: {} as Claims,
+        }
+    },
     getters:{
         getUserInfo(state){
-            return state
+            return state.user
         }
     },
     actions: {
+        storeClaims(claims:Claims){
+          goodStorage.set('claims',claims)
+          this.claims = claims
+        },
         //users
         async getUserInfo() {
             const result = await UserApi.getUserInfo()
-            this.$state = result.data
+            this.user = result.data
+            console.log(result.data)
+        },
+
+        async login(loginForm:LoginForm) {
+            const result = await UserApi.login(loginForm)
+            this.claims = result.data
             console.log(result.data)
         }
     }
