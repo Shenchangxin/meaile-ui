@@ -1,5 +1,6 @@
-import axios, {AxiosInstance,AxiosRequestConfig,AxiosResponse,AxiosPromise} from "axios"
+import axios, {AxiosInstance,AxiosRequestConfig,AxiosPromise} from "axios"
 import {ElMessage} from "element-plus";
+import goodStorage from "good-storage"
 
 const SERVER_ERR = '请求服务器网址错误或网络连接失败'
 interface AxiosRequestConfig_ extends AxiosRequestConfig{
@@ -39,8 +40,13 @@ class AxiosUtil {
 
     //请求开始之前进行拦截
     beforeReqIntercept(){
-        this.axiosInstance.interceptors.request.use((request) =>{
-            return request
+        this.axiosInstance.interceptors.request.use((config) =>{
+            config.headers = config.headers || {}
+            if(goodStorage.get('token')){
+                config.headers.set('x-token',goodStorage.get('token'))
+                config.headers.token = goodStorage.get('token') || ''
+            }
+            return config
         })
     }
     //数据响应之前的响应拦截器
