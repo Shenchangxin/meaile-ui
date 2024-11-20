@@ -1,4 +1,3 @@
-
 import UserApi from "@/api/UserApi.ts";
 import {defineStore} from "pinia";
 import goodStorage from "good-storage"
@@ -37,7 +36,7 @@ export const userStore = defineStore('userStore',{
           this.claims = claims
         },
         //users
-        async getUserInfo() {
+        async getUserInfoActions() {
             const result = await UserApi.getUserInfo()
             this.user = result.data
             console.log(result.data)
@@ -45,8 +44,10 @@ export const userStore = defineStore('userStore',{
 
         async login(loginForm:LoginForm) {
             const result = await UserApi.login(loginForm)
-            this.claims = result.data
             console.log(result.data)
+            this.claims = result.data
+            this.storeClaims(result.data)
+
         }
     }
 
