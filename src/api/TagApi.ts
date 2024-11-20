@@ -1,4 +1,4 @@
-import request from "@/utils/axiosUtil";
+import request from "@/utils/request";
 
 class TagApi {
     static api : TagApi = new TagApi()

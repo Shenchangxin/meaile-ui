@@ -1,4 +1,4 @@
-import request from "@/utils/axiosUtil";
+import request from "@/utils/request";
 
 class GroupApi {
     static api : GroupApi = new GroupApi()

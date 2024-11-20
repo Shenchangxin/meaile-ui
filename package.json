@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/axios": "^0.9.36",
     "@types/vue-router": "^2.0.0",
-    "axios": "^1.7.7",
+    "axios": "1.7.4",
     "dotenv": "^16.4.5",
     "element-plus": "^2.8.6",
     "good-storage": "^1.1.1",
