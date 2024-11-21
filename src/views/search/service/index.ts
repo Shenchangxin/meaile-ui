@@ -12,7 +12,9 @@ export  default  class SearchService{
 
     static tagList: Ref<Tag[]> = ref([])
 
-    static secondTagList: Ref<Tag[]> = ref([])
+    static firstTag: Ref<{}> = ref({})
+
+    static firstTagList: Ref<Tag[]> = ref([])
 
     static async getFirstTag(){
         await this.store.getFirstTagListByParentId()
