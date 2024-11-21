@@ -7,9 +7,8 @@ class UserApi {
     return  request.post('/meaile/api/user/login', loginForm)
   }
   getUserInfo(){
-    return request.get('/meaile/api/user/getUserInfo',false)
+    return request.get('/meaile/api/user/getUserInfo')
   }
 }
 
-export const login = (data?: any) => request.post('/meaile/api/user/login', data);
 export default UserApi.api

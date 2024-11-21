@@ -3,7 +3,7 @@
     <ul class="firstTag">
       <li :class="{'firstTag-item':true,'firstTag-item_active':firstTagActiveIndex === index}"
           @click="changeTab(index)"
-          v-for="(item,index) in tagList"
+          v-for="(item,index) in firstTagList"
           :key="item.id">
         <span class="firstTagName">{{item.tagName}}</span>
 
@@ -13,7 +13,7 @@
     <div class="secondTag">
       <ul>
         <li class="secondTag-item"
-            v-for="(item,index) in secondTagList" :key=" item.id" >
+            v-for="(item,index) in tagList" :key=" item.id" >
           <span class="secondTagName" @click="toFoodBookInfo(item,firstTag)">
             {{item.tagName}}
           </span>
@@ -24,11 +24,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import SearchService from "@/views/search/service";
 const  {storeRefs} = SearchService
 const {getFirstTagList,getSecondTagList,showColLine,changeTab,firstTagActiveIndex,toFoodBookInfo} = SearchService
-const {firstTag} = storeRefs
+const {firstTagList,tagList,firstTag} = storeRefs
 getFirstTagList()
 getSecondTagList()
 //获取标签列表数据
