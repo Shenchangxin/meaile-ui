@@ -36,7 +36,7 @@ getSecondTagList()
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .content{
   display: flex;
   position: absolute;
