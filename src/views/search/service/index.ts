@@ -16,6 +16,8 @@ export  default  class SearchService{
 
     static firstTagList: Ref<Tag[]> = ref([])
 
+    static secondTagList: Ref<Tag[]> = ref([])
+
     static async getFirstTag(){
         await this.store.getFirstTagListByParentId()
         this.storeFirstTag(1)
@@ -44,6 +46,10 @@ export  default  class SearchService{
         watchEffect(async () => {
             await SearchService.store.getTagListByParentId(SearchService.firstTagActiveIndex.value+1)
         })
+    }
+
+    static getSecondTagListByStore(){
+        return  SearchService.store.getSecondTagList
     }
 
     static  getClickTag(){

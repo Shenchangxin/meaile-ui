@@ -23,7 +23,7 @@
     @extend .multiplex-tosearch;
     .icon-fangdajing{
       font-size: 0.32rem;
-      margin: 0rem 0.2rem;
+      margin: 0 0.2rem;
     }
     &-keyword{
       width: 3.5rem;

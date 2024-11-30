@@ -5,11 +5,13 @@
   </div>
   <div class="bookTags">
     <breadcrumbs />
+    <secondTag/>
   </div>
 </template>
 <script setup lang="ts">
 import toSearch from './components/toSearch.vue'
 import breadcrumbs from './components/breadcrumbs.vue'
+import secondTag from './components/secondTag.vue'
 import {ImgUtil} from '@/utils/imgUtil'
 </script>
 
@@ -31,6 +33,5 @@ import {ImgUtil} from '@/utils/imgUtil'
   top: 2.7rem;
   width: 5.04rem;
   margin: 0.18rem;
-  background-color: skyblue;
 }
 </style>

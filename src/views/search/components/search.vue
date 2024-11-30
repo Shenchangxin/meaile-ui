@@ -10,8 +10,8 @@
       </li>
     </ul>
 
-    <div class="secondTag">
-      <ul>
+<!--    <div class="secondTag">-->
+      <ul class="secondTag">
         <li class="secondTag-item"
             v-for="(item,index) in tagList" :key=" item.id" >
           <span class="secondTagName" @click="toFoodBookInfo(item,firstTag)">
@@ -20,7 +20,7 @@
           <span class="iconfont icon-shuxian" v-show="showColLine(index)"></span>
         </li>
       </ul>
-    </div>
+<!--    </div>-->
   </div>
 </template>
 
@@ -36,7 +36,7 @@ getSecondTagList()
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .content{
   display: flex;
   position: absolute;
@@ -69,18 +69,21 @@ getSecondTagList()
   }
   .secondTag{
     display: grid;
-    padding: 0rem 0.05rem 0rem 0.1rem;
-    grid-template-columns: 1.18rem 1.1rem 0.25rem;
-    &-item{
-      background-color: #fff;
+    padding: 0 0.05rem 0 0.1rem;
+    //grid-template-columns: 1.18rem 1.1rem 0.25rem;
+    grid-template-columns: repeat(3, 1fr);
+    //&-item{
+
       .secondTag-item{
-        padding: 0.2rem 0rem;
+        background-color: #fff;
+        padding: 0.2rem 0;
+        align-items: center;
         text-align: center;
         .secondTagName{
           flex: 1;
         }
       }
-    }
+    //}
   }
 
 }
