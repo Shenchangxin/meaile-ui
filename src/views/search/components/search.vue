@@ -45,6 +45,7 @@ getSecondTagList()
   left: 0rem;
   bottom: 0.85rem;
   gap: 0.1rem;
+  font-size: 0.2rem;
   .firstTag{
     width: 1.3rem;
     flex-basis: 1.3rem;

@@ -6,12 +6,14 @@
   <div class="bookTags">
     <breadcrumbs />
     <secondTag/>
+    <bookitem/>
   </div>
 </template>
 <script setup lang="ts">
 import toSearch from './components/toSearch.vue'
 import breadcrumbs from './components/breadcrumbs.vue'
 import secondTag from './components/secondTag.vue'
+import bookitem from './components/bookitem.vue'
 import {ImgUtil} from '@/utils/imgUtil'
 </script>
 
