@@ -26,6 +26,7 @@ const {getSecondTagList} = SearchService.storeRefs
 .content {
   margin-top: 0.3rem;
   width: 5.04rem;
+  position: relative;
   .secondTags{
     float: left;
     font-size: 0.23rem;
@@ -33,12 +34,18 @@ const {getSecondTagList} = SearchService.storeRefs
     height: 0.48rem;
     &-item{
       text-shadow: 0 0 0.01rem gray;
+      padding: 0.05rem 0.15rem;
     }
   }
   .icon{
     position: relative;
     right: 0.2rem;
     top: 0.5rem;
+  }
+  &::after{
+    display: block;
+    content: '';
+    clear: both;
   }
 }
 </style>
