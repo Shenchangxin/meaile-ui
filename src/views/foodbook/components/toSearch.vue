@@ -3,10 +3,12 @@
     <i class="iconfont icon-xiangzuojiantou" @click="back()"></i>
     <div class="tosearch">
       <div class="tosearch-keyword">
-        <i class="iconfont icon-fangdajing"></i>
-        <input type="text" placeholder="土豆" class="tosearch-keyword-input"/>
-        <span class="keyword">{{getSecondTag.tagName}}</span>
-        <i class="iconfont icon-close"></i>
+        <i class="iconfont icon-fangdajing fangdajing"></i>
+        <div class="tosearch-keyword">
+          <input type="text" class="tosearch-keyword-input"/>
+          <span class="keyword">{{getSecondTag.tagName}}</span>
+          <i class="iconfont icon-close"></i>
+        </div>
       </div>
     </div>
     <i class="iconfont icon-iosgengduo_o more"></i>
@@ -27,8 +29,17 @@ const {getSecondTag} = storeRefs
 @use "../../../assets/css/common";
 .content{
   @extend .multiplex-content;
+  z-index: 2;
   .tosearch{
     @extend .multiplex-tosearch;
+    .fangdajing{
+      fonts-size: 0.36rem;
+      margin: 0rem 0.26rem;
+    }
+    &-keyword{
+      display: grid;
+      grid-template-columns: 3rem;
+    }
   }
 }
 </style>
