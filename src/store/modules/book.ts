@@ -2,6 +2,14 @@ import bookApi from "@/api/BookApi.ts";
 import {defineStore} from "pinia";
 import goodStorage from "good-storage";
 
+
+function hasProps(obj: Record<string, any>) {
+    return Boolean(Object.getOwnPropertyNames(obj).length)
+}
+
+function hasListItemProps(list: Book[]) {
+    return Boolean(list.length > 0)
+}
 export interface Book {
     id: number,
     bookName: string,
@@ -25,15 +33,14 @@ export const bookStore = defineStore('bookStore', {
     },
     getters: {
         getBookListByTag(state){
-            return state.bookListByTag
+            return hasListItemProps(state.bookListByTag) ? state.bookListByTag : goodStorage.get('bookListByTag')
         }
     },
     actions: {
-        async getBookListByTag(tagId: number) {
-            const result = await bookApi.getBookListByTag(tagId)
+        async getBookListByTagId(tagId: number) {
+            const result = await bookApi.getBookListByTagId(tagId)
             this.bookListByTag = result.data
-            // goodStorage.set('bookListByTag', result.data)
-            // this.secondTagList = result.data
+            goodStorage.set('bookListByTag', result.data)
             console.log("bookListByTag:" + this.bookListByTag)
         },
     }

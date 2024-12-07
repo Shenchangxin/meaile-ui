@@ -1,11 +1,13 @@
 <template>
-  <div class="bookitem">
-    <img class="book-pic" :src="ImgUtil.getImg('1童年png')"/>
+  <div class="bookitem" v-for="(bookInfo,index) in bookListByTag" :key="bookInfo.id">
+    <img class="book-pic" :src="ImgUtil.getImg(bookInfo.image)"/>
     <div class="bookinfo">
       <div class="bookinfo-brief">
-        <div class="book-name">西游记贵族</div>
+        <div class="book-name">{{bookInfo.bookName}}</div>
         <div class="book-author-publes">
-
+          <span class="author spacing" >{{bookInfo.createdBy}}</span>
+          <span class="separator spacing"></span>
+          <span class="publs spacing">{{bookInfo}}</span>
         </div>
       </div>
       <div class="bookinfo-other">
@@ -36,6 +38,11 @@
 
 <script setup lang="ts">
 import {ImgUtil} from '@/utils/imgUtil'
+import bookService from '../service'
+const {getBookListByTagId,storeRefs} = bookService
+const {bookListByTag} = storeRefs
+getBookListByTagId();
+
 </script>
 
 <style scoped lang="scss">
@@ -50,6 +57,7 @@ import {ImgUtil} from '@/utils/imgUtil'
     width: 1.8rem;
     height: 2.2rem;
     object-fit: contain;
+    justify-self: flex-start;
   }
   .bookinfo{
     width: 2.7rem;
