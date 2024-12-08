@@ -6,33 +6,33 @@
         <div class="book-name">{{bookInfo.bookName}}</div>
         <div class="book-author-publes">
           <span class="author spacing" >{{bookInfo.createdBy}}</span>
-          <span class="separator spacing"></span>
-          <span class="publs spacing">{{bookInfo}}</span>
+          <span class="separator spacing">{{bookInfo.introduction}}</span>
+          <span class="publs spacing">{{bookInfo.favorite}}</span>
         </div>
       </div>
-      <div class="bookinfo-other">
-        <div class="price">
-          <span class="discountprice spacing">
-            <span class="symbol">&yen;</span>
-            89.34
-          </span>
-          <span class="originprice spacing">&yen;100</span>
-          <span class="discount">0.8折</span>
-        </div>
-        <div class="give">
-          <span class="self-support">自营</span>
-          <span class="coupons">券</span>
-          <span class="free-shipping">包邮</span>
-        </div>
-        <div class="monthsalecount">
-          <span>月售9898</span>
-        </div>
-        <div class="ranklist">
-          <span>图书畅销总排行榜第一名</span>
-        </div>
-      </div>
+<!--      <div class="bookinfo-other">-->
+<!--        <div class="price">-->
+<!--          <span class="discountprice spacing">-->
+<!--            <span class="symbol">&yen;</span>-->
+<!--            89.34-->
+<!--          </span>-->
+<!--          <span class="originprice spacing">&yen;100</span>-->
+<!--          <span class="discount">0.8折</span>-->
+<!--        </div>-->
+<!--        <div class="give">-->
+<!--          <span class="self-support">自营</span>-->
+<!--          <span class="coupons">券</span>-->
+<!--          <span class="free-shipping">包邮</span>-->
+<!--        </div>-->
+<!--        <div class="monthsalecount">-->
+<!--          <span>月售9898</span>-->
+<!--        </div>-->
+<!--        <div class="ranklist">-->
+<!--          <span>图书畅销总排行榜第一名</span>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
-    <div class="empty" :show="false">库存所有书已经售完</div>
+<!--    <div class="empty" :show="false">库存所有书已经售完</div>-->
   </div>
 </template>
 
