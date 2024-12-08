@@ -3,9 +3,9 @@ import {defineStore} from "pinia";
 import goodStorage from "good-storage";
 
 
-function hasProps(obj: Record<string, any>) {
-    return Boolean(Object.getOwnPropertyNames(obj).length)
-}
+// function hasProps(obj: Record<string, any>) {
+//     return Boolean(Object.getOwnPropertyNames(obj).length)
+// }
 
 function hasListItemProps(list: Book[]) {
     return Boolean(list.length > 0)
@@ -37,8 +37,8 @@ export const bookStore = defineStore('bookStore', {
         }
     },
     actions: {
-        async getBookListByTagId(tagId: number) {
-            const result = await bookApi.getBookListByTagId(tagId)
+        async getBookListByTagId(tagId: number,sortField:string,ascOrDesc:string) {
+            const result = await bookApi.getBookListByTagId(tagId,sortField,ascOrDesc)
             this.bookListByTag = result.data
             goodStorage.set('bookListByTag', result.data)
             console.log("bookListByTag:" + this.bookListByTag)
