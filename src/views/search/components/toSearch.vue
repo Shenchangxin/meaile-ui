@@ -2,7 +2,7 @@
   <div class="content">
     <div class="to-search">
       <i class="iconfont icon-fangdajing"></i>
-      <div class="tosearch-keyword">
+      <div class="to-search-keyword">
         <input type="text" placeholder="土豆" class="tosearch-keyword-input"/>
         <i class="iconfont icon-iconfontscan"></i>
       </div>
@@ -31,6 +31,13 @@
       display: flex;
       align-items: center;
       gap: 0.2rem;
+      .tosearch-keyword-input{
+        height: 0.3rem;
+        width: 2.8rem;
+        padding-left: 0.09rem;
+        border-radius: 0.15rem;
+        font-size: 0.22rem;
+      }
     }
   }
   .message{
