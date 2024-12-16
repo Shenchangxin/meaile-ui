@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "10393203",
+      "name": "向左箭头",
+      "font_class": "xiangzuojiantou",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
       "icon_id": "10707179",
       "name": "箭头 上 up",
       "font_class": "jiantoushang",
