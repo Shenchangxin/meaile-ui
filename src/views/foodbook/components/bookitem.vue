@@ -1,6 +1,6 @@
 <template>
-  <div class="bookitem" v-for="(bookInfo,index) in bookListByTag" :key="bookInfo.id">
-    <img class="book-pic" :src="ImgUtil.getImg(bookInfo.image)"/>
+  <div class="bookitem" v-for="(bookInfo,_) in bookListByTag" :key="bookInfo.id">
+    <img class="book-pic" :src="bookInfo.imageOssObj.fileUrl"/>
     <div class="bookinfo">
       <div class="bookinfo-brief">
         <div class="book-name">{{bookInfo.bookName}}</div>
