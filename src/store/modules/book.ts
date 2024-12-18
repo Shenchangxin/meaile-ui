@@ -1,6 +1,7 @@
 import bookApi from "@/api/BookApi.ts";
 import {defineStore} from "pinia";
 import goodStorage from "good-storage";
+import { Oss, Tag } from "@/store"
 
 
 // function hasProps(obj: Record<string, any>) {
@@ -14,6 +15,8 @@ export interface Book {
     id: number,
     bookName: string,
     image: string,
+    imageOssObj: Oss,
+    tagList: Tag[],
     introduction: string,
     favorite: number,
     sort: number,
