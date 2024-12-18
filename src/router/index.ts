@@ -4,6 +4,7 @@ const user = () => import('@/views/user/index.vue')
 const search = () => import('@/views/search/index.vue')
 const foodbook = () => import('@/views/foodbook/index.vue')
 const login = () => import('@/views/login/index.vue')
+// const footer = () => import('@/views/footer/index.vue')
 const routes: RouteRecordRaw[] = [
     {
         name: 'shouye',
@@ -30,6 +31,11 @@ const routes: RouteRecordRaw[] = [
         path: '/login',
         component: login
     },
+  // {
+  //   name: 'footer',
+  //   path: '/footer',
+  //   component: footer
+  // },
 
 
 ]
