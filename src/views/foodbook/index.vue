@@ -8,6 +8,7 @@
     <secondTag/>
     <booksort/>
     <bookitem/>
+    <Footer />
   </div>
 </template>
 <script setup lang="ts">
@@ -16,6 +17,7 @@ import breadcrumbs from './components/breadcrumbs.vue'
 import secondTag from './components/secondTag.vue'
 import bookitem from './components/bookitem.vue'
 import booksort from './components/booksort.vue'
+import Footer from '@/views/footer/index.vue'
 import {ImgUtil} from '@/utils/imgUtil'
 </script>
 

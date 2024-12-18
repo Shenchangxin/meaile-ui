@@ -45,11 +45,19 @@ export const userStore = defineStore('userStore', {
             console.log(result.data)
         },
 
-        async login(loginForm: LoginForm) {
-            const result = await UserApi.login(loginForm)
-            console.log(result.data)
-            this.claims = result.data
-            this.storeClaims(result.data)
+        async login(loginForm: LoginForm) : Promise<number> {
+            try {
+                const result = await UserApi.login(loginForm)
+                console.log(result.data)
+                if (result && result.code === 200){
+                    this.claims = result.data
+                    this.storeClaims(result.data)
+                }
+                return result.code
+            }catch (error){
+                console.log("调用登录接口失败："+error)
+                return 500
+            }
 
         }
     }
