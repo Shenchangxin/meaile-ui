@@ -1,8 +1,8 @@
 <template>
   <div class="content" >
     <ul class="firstTag">
-      <li :class="{'firstTag-item':true,'firstTag-item_active':firstTagActiveIndex === index}"
-          @click="changeTab(index)"
+      <li :class="{'firstTag-item':true,'firstTag-item_active':firstTagActiveIndex === item.id}"
+          @click="changeTab(item.id)"
           v-for="(item,index) in firstTagList"
           :key="item.id">
         <span class="firstTagName">{{item.tagName}}</span>

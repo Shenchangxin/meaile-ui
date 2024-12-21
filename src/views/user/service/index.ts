@@ -34,6 +34,16 @@ export default class UserService {
 
   static selectIndex = (index: number) => {
     this.selectedIndex.value = index; // 更新选中的标签索引
+    if (index === 0){
+      router.push({name: "shouye"})
+    }else if (index===1){
+      router.push({name: "search"})
+    }else if (index===2){
+      router.push({name: "friend"})
+    }else if (index===3){
+      router.push({name: "user"})
+    }
+
   }
 
 }
