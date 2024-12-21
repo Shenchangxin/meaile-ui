@@ -37,7 +37,6 @@
 </template>
 
 <script setup lang="ts">
-import {ImgUtil} from '@/utils/imgUtil'
 import bookService from '../service'
 const {getBookListByTagId,storeRefs} = bookService
 const {bookListByTag} = storeRefs
@@ -50,7 +49,7 @@ getBookListByTagId();
   margin-top: 0.2rem;
   display: grid;
   grid-template-columns: 2.34rem 2.7rem;
-  background-color: skyblue;
+  //background-color: skyblue;
   justify-items: center;
   row-gap: 0.1rem;
   .book-pic{
