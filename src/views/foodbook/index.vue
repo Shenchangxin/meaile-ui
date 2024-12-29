@@ -8,8 +8,8 @@
     <secondTag/>
     <booksort/>
     <bookitem/>
-    <Footer />
   </div>
+  <div><Footer /></div>
 </template>
 <script setup lang="ts">
 import toSearch from './components/toSearch.vue'
@@ -39,5 +39,6 @@ import {ImgUtil} from '@/utils/imgUtil'
   top: 2.7rem;
   width: 5.04rem;
   margin: 0.18rem;
+  padding-bottom: 0.5rem;
 }
 </style>

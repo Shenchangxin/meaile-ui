@@ -1,10 +1,13 @@
 import UserApi from "@/api/UserApi.ts";
 import {defineStore} from "pinia";
 import goodStorage from "good-storage"
+import {Oss} from "@/store";
 
 export interface User {
     username: string,
     id: number,
+    avatar: string,
+    avatarOssObj: Oss,
     nickname: string,
 }
 
@@ -42,7 +45,7 @@ export const userStore = defineStore('userStore', {
         async getUserInfoActions() {
             const result = await UserApi.getUserInfo()
             this.user = result.data
-            console.log(result.data)
+            console.log(this.user)
         },
 
         async login(loginForm: LoginForm) : Promise<number> {

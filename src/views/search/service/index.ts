@@ -8,7 +8,7 @@ export  default  class SearchService{
     static store = tagStore()
     static storeRefs = storeToRefs(SearchService.store)
 
-    static firstTagActiveIndex:Ref<number>=ref(0)
+    static firstTagActiveIndex:Ref<number>=ref(1)
 
     static tagList: Ref<Tag[]> = ref([])
 
@@ -36,7 +36,7 @@ export  default  class SearchService{
     }
     static changeTab(index: number){
         SearchService.firstTagActiveIndex.value=index
-        SearchService.storeFirstTag(index+1)
+        SearchService.storeFirstTag(index)
     }
     static showColLine(index: number){
         return (index+1) % 3 !== 0
@@ -44,7 +44,7 @@ export  default  class SearchService{
 
     static getSecondTagList(){
         watchEffect(async () => {
-            await SearchService.store.getTagListByParentId(SearchService.firstTagActiveIndex.value+1)
+            await SearchService.store.getTagListByParentId(SearchService.firstTagActiveIndex.value)
         })
     }
 
