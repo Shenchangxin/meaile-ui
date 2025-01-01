@@ -9,6 +9,7 @@
     </div>
     <button class="edit-profile" @click="goToProfileEdit">编辑资料</button>
   </div>
+
 </template>
 
 <script  lang="ts" setup>

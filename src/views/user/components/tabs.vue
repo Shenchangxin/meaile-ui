@@ -11,31 +11,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
+<script lang="ts" setup>
+import UserService from "@/views/user/service";
+const {getTabs,changeTab,storeRefs} = UserService
+const{activeTab} = storeRefs
+const tabs = getTabs()
 
-export default defineComponent({
-  name: 'Tabs',
-  props: {
-    activeTab: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      tabs: ['我发布的食谱', '我收藏的食谱'],
-    };
-  },
-  methods: {
-    changeTab(tab: string) {
-      this.$emit('tab-change', tab);
-    },
-  },
-});
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .tabs {
   display: flex;
   justify-content: space-around;

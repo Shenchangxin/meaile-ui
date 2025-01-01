@@ -1,21 +1,21 @@
 <template>
   <div class="recipe-card">
-    <img :src="recipe.cover" alt="recipe cover" class="cover" />
+    <img :src="book.imageOssObj.fileUrl" alt="recipe cover" class="cover" />
     <div class="info">
-      <div class="title">{{ recipe.title }}</div>
-      <div class="description">{{ recipe.description }}</div>
-      <div class="likes">{{ recipe.likes }}赞</div>
+      <div class="title">{{ book.bookName }}</div>
+      <div class="description">{{ book.introduction }}</div>
+      <div class="likes">{{ book.favorite }}赞</div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'RecipeCard',
   props: {
-    recipe: {
+    book: {
       type: Object,
       required: true,
     },

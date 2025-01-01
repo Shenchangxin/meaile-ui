@@ -8,6 +8,8 @@ export default class UserService {
   static store = userStore()
   static storeRefs = storeToRefs(UserService.store)
   static user: Ref<{}> = ref({})
+  static books: Ref<[]> = ref([])
+  static activeTab: Ref<string> = ref("")
   static selectedIndex:Ref<number>=ref(0)
 
   static async getUserInfo() {
@@ -30,6 +32,13 @@ export default class UserService {
 
   }
 
+  static getTabs(): string[]{
+    return ["作品","推荐","收藏","喜欢"]
+  }
+
+  static async changeTab(tab : string){
+    await UserService.store.getBooksByTab(tab)
+  }
 
   static goToProfileEdit(){
     router.push({ name: "profileEdit"})
