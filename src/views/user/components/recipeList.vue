@@ -1,25 +1,15 @@
 <template>
   <div class="recipe-list">
-    <RecipeCard v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" />
+    <RecipeCard class="recipe-card" v-for="book in books" :key="book.id" :book="book"  />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
+<script lang="ts" setup>
+import UserService from "@/views/user/service";
 import RecipeCard from './recipeCard.vue';
+const {storeRefs} = UserService
+const {books} = storeRefs
 
-export default defineComponent({
-  name: 'RecipeList',
-  components: {
-    RecipeCard,
-  },
-  props: {
-    recipes: {
-      type: Array as PropType<any[]>,
-      required: true,
-    },
-  },
-});
 </script>
 
 <style scoped>

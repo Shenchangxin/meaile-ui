@@ -5,5 +5,9 @@ class BookAPI {
     getBookListByTagId(tagId: number,sortField:string,ascOrDesc:string){
         return request.get('/meaile/api/book/getBookListByTagId'+'?tagId='+tagId+'&sortField='+sortField+'&ascOrDesc='+ascOrDesc)
     }
+
+    getMyBooks(){
+        return request.get('/meaile/api/book/getMyBooks')
+    }
 }
 export default BookAPI.api
