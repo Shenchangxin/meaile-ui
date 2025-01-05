@@ -1,10 +1,10 @@
 <template>
   <div class="recipe-card">
-    <img :src="book.imageOssObj.fileUrl" alt="recipe cover" class="cover" />
+    <img :src="book?.imageOssObj?.fileUrl || ''" alt="recipe cover" class="cover" />
     <div class="info">
       <div class="title">{{ book.bookName }}</div>
       <div class="description">{{ book.introduction }}</div>
-      <div class="likes">{{ book.favorite }}赞</div>
+      <div class="likes">{{ book.favorite }} 评分</div>
     </div>
   </div>
 </template>

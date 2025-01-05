@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="avatar-container">
-      <img class="avatar" :src="user.avatarOssObj.fileUrl" @click="goToProfileEdit"  alt="avatar"/>
+      <img class="avatar" :src="user?.avatarOssObj?.fileUrl || ''" @click="goToProfileEdit"  alt="avatar"/>
     </div>
     <div class="user-info">
       <div class="nickname">{{ user.nickname }}</div>
